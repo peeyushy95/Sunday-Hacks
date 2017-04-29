@@ -30,11 +30,11 @@ data = digits.images.reshape((n_samples, -1))
 classifier = svm.SVC(kernel='linear', C=1, gamma=0.001)
 
 # Training
-classifier.fit(data[:(2*n_samples)/3], digits.target[:(2*n_samples)/3])
+classifier.fit(data[:(2*n_samples)//3], digits.target[:(2*n_samples)//3])
 
 # Now predict the value of the digit on the second half:
-expected = digits.target[(2*n_samples)/3:]
-predicted = classifier.predict(data[(2*n_samples)/3:])
+expected = digits.target[(2*n_samples)//3:]
+predicted = classifier.predict(data[(2*n_samples)//3:])
 
 cm = confusion_matrix(expected, predicted)
 print("Confusion matrix:\n%s" % cm)
